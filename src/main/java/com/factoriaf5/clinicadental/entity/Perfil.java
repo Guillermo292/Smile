@@ -16,6 +16,8 @@ public class Perfil {
      
     @Column(length = 45,nullable = false)
     private String name;
+    private String lastName;
+    private String email;
 
     public Perfil() {
     }
