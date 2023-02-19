@@ -1,39 +1,36 @@
-package com.factoriaf5.clinicadental.entity;
+package com.factoriaf5.clinicadental.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="perfiles")
+@Table(name="profiles")
 public class Perfil {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name="id_perfil")
     private Long id;
      
     @Column(length = 45,nullable = false)
     private String name;
+    @Column(length = 45,nullable = false)
     private String lastName;
+    @Column(length = 45,nullable = false)
     private String email;
+    @Column(length = 45,nullable = false)
     private int age;
+    @Column(length = 45,nullable = false)
     private int phoneNumber;
+    @Column(length = 45,nullable = false)
     private String city;
+    @Column(length = 45,nullable = false)
     private String direction;
    
-    @OneToOne
-    private Patient patient;
-    @OneToOne 
-    private Perfil perfil;
-    @OneToMany
-    private Patient patients;
-    @OneToMany
-    private Treatment treatment;
-   
+    
+    
     public Perfil() {
     
     }
