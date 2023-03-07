@@ -1,9 +1,11 @@
 package com.factoriaf5.clinicadental.repository;
+import com.factoriaf5.clinicadental.models.Perfil;
+// import com.factoriaf5.clinicadental.service.PerfilService;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.factoriaf5.clinicadental.models.Perfil;
-
 public interface PerfilRepository extends JpaRepository<Perfil, Long> {
-    
+
 }
+    

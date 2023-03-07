@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Table(name="profiles")
 public class Perfil {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name="id_perfil")
-    private Long id;
-     
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_perfil")
+    private Long id; 
     @Column(length = 45,nullable = false)
     private String name;
     @Column(length = 45,nullable = false)

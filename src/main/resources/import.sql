@@ -1,0 +1,1 @@
+INSERT INTO profiles (id_perfil, name,last_name, email,age,phone_number,city,direction) VALUES(default,'Manolo','Rodriguez','gt@.com',30,5555,'Gijon','Moreda')
