@@ -2,8 +2,6 @@ package com.factoriaf5.clinicadental.controllers;
 
 import java.util.List;
 
-
-// import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,51 +13,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.factoriaf5.clinicadental.models.Perfil;
-import com.factoriaf5.clinicadental.service.PerfilService;
+import com.factoriaf5.clinicadental.models.Treatment;
+import com.factoriaf5.clinicadental.service.TreatmentServicie;
+
 
 @RestController
-@RequestMapping(path = "/api/perfil")
-public class PerfilController {
-  private PerfilService service;
+@RequestMapping(path = "/api/treatment")
+public class TreatmentController{
+    private TreatmentServicie service;
 
-  public PerfilController (PerfilService service){
-    this.service = service;
-  }
+    public TreatmentController(TreatmentServicie service){
+        this.service = service;
+    }
 
-  @GetMapping("")
-    public List<Perfil> listAll() {
+    @GetMapping("")
+    public List<Treatment> listAll() {
         return service.getAll();
     }
-  @GetMapping("{/id}")
-  public Perfil listOne(@PathVariable Long id) {
+
+    @GetMapping("{/id}")
+  public Treatment listOne(@PathVariable Long id) {
     return service.getOne(id);
   }
 
   @PostMapping("")
   @ResponseStatus( value = HttpStatus.CREATED)
-  public ResponseEntity<?> store(@RequestBody Perfil newprofile){
+  public ResponseEntity<?> store(@RequestBody Treatment newtTreatment){
 
-  try{
-    return ResponseEntity.ok(service.save(newprofile));
-} catch(Exception e){
-    return ResponseEntity.status(500).body("error");
-}
+    try{
+        return ResponseEntity.ok(service.save(newtTreatment));
+    } catch(Exception e){
+        return ResponseEntity.status(500).body("error");
+    }
 }
 @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         service.delete(id);
     }
-
-  }
-
-
-
-
-
-
-
-
+}
 
 
 
