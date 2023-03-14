@@ -51,7 +51,7 @@ public class PatientController{
         try{
             return ResponseEntity.ok(service.save(newpatient));
         } catch(Exception e){
-            return ResponseEntity.status(500).body("error");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("error" + e.getMessage());
         }
 
     }

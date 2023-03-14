@@ -1,11 +1,9 @@
 package com.factoriaf5.clinicadental.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Set;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "patients")
@@ -17,6 +15,13 @@ public class Patient {
     private Long id;
     @Column(name = "dni")
     private String dni;
+
+    @ManyToMany
+    @JoinTable(
+    name = "patients_treatments",
+    joinColumns = @JoinColumn(name = "id_patient"),
+    inverseJoinColumns = @JoinColumn(name = "id_treatment"))
+    Set<Treatment> treatments;
 
 
     public Patient() {
